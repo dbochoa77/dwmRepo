@@ -91,9 +91,11 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,						XK_e,	   spawn		   {.v = emacscmd}},
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
