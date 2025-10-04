@@ -13,9 +13,9 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=14" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=14";
 static const char col_gray1[]       = "#000000"; /*222222*/ /* XP Green: 81C046*/
 static const char col_gray2[]       = "#000000"; /*444444*/ /*words*/
-static const char col_gray3[]       = "#000000";   /* bbbbbb */
+static const char col_gray3[]       = "#00003b";   /* words */
 static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#00004e"; /*XP Blue: #3B77BC*/
+static const char col_cyan[]        = "#ececec"; /*XP Blue: #3B77BC*/
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
