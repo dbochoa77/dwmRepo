@@ -13,9 +13,9 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=14" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=14";
 static const char col_gray1[]       = "#000000"; /*222222*/ /* XP Green: 81C046*/
 static const char col_gray2[]       = "#000000"; /*444444*/ /*words*/
-static const char col_gray3[]       = "#8499D9";   /* bbbbbb */
+static const char col_gray3[]       = "#000000";   /* bbbbbb */
 static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#8499D9"; /*XP Blue: #3B77BC*/
+static const char col_cyan[]        = "#00004e"; /*XP Blue: #3B77BC*/
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -75,6 +75,7 @@ static const char *brightness_down[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
 static const char *settings[] = { "alacritty", "cd ~/blacknix", NULL };
 static const char *bluetoothtoggle[] = { "rfkill", "toggle" , "bluetooth" , "toggle", NULL }; 
+static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +91,7 @@ static const Key keys[] = {
 
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_q,      spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd}},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
