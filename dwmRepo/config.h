@@ -76,22 +76,29 @@ static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
 static const char *settings[] = { "alacritty", "cd ~/blacknix", NULL };
 static const char *bluetoothtoggle[] = { "rfkill", "toggle" , "bluetooth" , "toggle", NULL }; 
 static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
+static const char *librewolf[] = { "librewolf", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-        { 0,				XF86XK_AudioMute,   spawn, {.v = volumeMute} },
-	{ 0,				XF86XK_AudioRaiseVolume,   spawn, {.v = volumeUp } }, 			  { 0,				  XF86XK_AudioLowerVolume,   spawn, {.v = volumeDown } },
-        { 0,				XF86XK_AudioRaiseVolume,   spawn, {.v = volumeUp } }, 			  { 0,				  XF86XK_AudioMicMute,   spawn, {.v = micmute } },
+	/* CUSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSTOM-----------------------------TOPPPPPPPPPPPPPPPPPPP */
+	/* modifier                     key				function	argument */
+        { 0,				XF86XK_AudioMute,		spawn,		{.v = volumeMute} },
+	{ 0,				XF86XK_AudioRaiseVolume,	spawn,		{.v = volumeUp } }, 			  
+	{ 0,				XF86XK_AudioLowerVolume,	spawn, 		{.v = volumeDown } },
+        { 0,				XF86XK_AudioRaiseVolume,   	spawn, 		{.v = volumeUp } }, 			  
+	{ 0,				XF86XK_AudioMicMute,		spawn, 		{.v = micmute } },
 
-	{ 0,  				XF86XK_MonBrightnessUp,    spawn, {.v = brightness_up} },
-        { 0,  				XF86XK_MonBrightnessDown,  spawn, {.v = brightness_down} },
-        { 0,  				XF86XK_WLAN,  spawn, {.v = wifitoggle } },
-	{ 0,  				XK_F9,  spawn, {.v = settings } },
-	{ 0,  				XK_F10,  spawn, {.v = bluetoothtoggle } }, 
+	{ 0,  				XF86XK_MonBrightnessUp,    	spawn, 		{.v = brightness_up} },
+        { 0,  				XF86XK_MonBrightnessDown,  	spawn, 		{.v = brightness_down} },
+        { 0,  				XF86XK_WLAN,			spawn, 		{.v = wifitoggle } },
+	{ 0,  				XK_F9,				spawn, 		{.v = settings } },
+	{ 0,  				XK_F10,				spawn, 		{.v = bluetoothtoggle } }, 
 
+	/* HOTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-----------------------------------------------KEYYYYYYYYYYYYYYYYSS */
+	/* modifier                     key	   function	   argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_q,      spawn,          {.v = termcmd } },
-	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd}},
+	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd } },
+	{ MODKEY,			XK_f,	   spawn,          {.v = librewolf } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
