@@ -12,10 +12,10 @@ static const int user_bh            = 35;        /* 0 means that dwm will calcul
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=14" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=14";
 static const char col_gray1[]       = "#000000"; /*222222*/ /* XP Green: 81C046*/
-static const char col_gray2[]       = "#000000"; /*444444*/ /*words*/
+static const char col_gray2[]       = "#ececec"; /*444444*/ /*words*/
 static const char col_gray3[]       = "#ececec";   /* words */
 static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#00003b"; /*XP Blue: #3B77BC*/
+static const char col_cyan[]        = "#6F8FAF"; /*XP Blue: #3B77BC*/
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
