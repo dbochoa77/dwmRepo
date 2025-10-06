@@ -77,6 +77,8 @@ static const char *settings[] = { "alacritty", "cd ~/blacknix", NULL };
 static const char *bluetoothtoggle[] = { "rfkill", "toggle" , "bluetooth" , "toggle", NULL }; 
 static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
+static const char *slock[] = { "slock", NULL };
+
 
 static const Key keys[] = {
 	/* CUSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSTOM-----------------------------TOPPPPPPPPPPPPPPPPPPP */
@@ -99,6 +101,7 @@ static const Key keys[] = {
 	{ MODKEY,	                XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd } },
 	{ MODKEY,			XK_w,	   spawn,          {.v = librewolf } },
+	{ MODKEY|ShiftMask,		XK_l,	   spawn,          {.v = slock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
