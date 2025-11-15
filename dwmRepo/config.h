@@ -100,7 +100,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_q,      spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd } },
-	{ MODKEY,			XK_w,	   spawn,          {.v = librewolf } },
+	{ MODKEY,			XK_r,	   spawn,          {.v = librewolf } },
 	{ MODKEY|ShiftMask,		XK_l,	   spawn,          {.v = slock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
