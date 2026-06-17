@@ -1,11 +1,6 @@
-/* 
- _____ _____ ___   _   _______  ___  ____________ 
-/  ___|_   _/ _ \ | \ | |  _  \/ _ \ | ___ \  _  \
-\ `--.  | |/ /_\ \|  \| | | | / /_\ \| |_/ / | | |
- `--. \ | ||  _  || . ` | | | |  _  ||    /| | | |
-/\__/ / | || | | || |\  | |/ /| | | || |\ \| |/ / 
-\____/  \_/\_| |_/\_| \_/___/ \_| |_/\_| \_|___/  
-*/
+/* See LICENSE file for copyright and license details. */
+
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -37,11 +32,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "librewolf",      NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "firefox",        NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "thunderbird",    NULL,       NULL,    2 << 2,     0,          -1 },
-	{ "pavucontrol",    NULL,       NULL,    1 << 8,     0,          -1 },
-	{ "Signal", NULL,       NULL,    1 << 7,     0,          -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -75,7 +67,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 /* TOP ROW */
 
 /* F1 */
-static const char *fastfetch[] = { "alacritty", "-e", "-c", "fastfetch; exec sh", NULL };
+static const char *fastfetch[] = { "alacritty", "-e", "fastfetch", NULL };
 
 /* F2 */
 static const char *micMute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };
@@ -108,9 +100,7 @@ static const char *brightnessUp[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
 
 /* F12 */
-static const char *weathercmd[] = { "alacritty", "./.local/bin/weather.sh",  NULL };
-
-/*static const char *weathercmd[] = { "/home/dbochoa77/.local/bin/weather.sh", NULL };*/
+/* SHCMD("weahter.sh"); Custom Script for moniters */
 
 /* HOT KEYS */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -134,7 +124,7 @@ static const Key keys[] = {
 	{ 0,				            XK_F9,          spawn, 		{.v = brightnessUp } },
     { 0,				            XK_F10,         spawn, 		SHCMD("flameshot -p  $HOME/Downloads/") },
 	{ 0,				            XK_F11,         spawn, 		{.v = wifitoggle } },
-	{ 0,  				            XK_F12,	    spawn,		{.v = weathercmd } },  
+	{ 0,  				            XK_F12,			spawn, 		SHCMD("weather.sh") },  
 
 	/* HOT KEYS */
 	/* modifier                     key	   function	   argument */

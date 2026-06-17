@@ -37,11 +37,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "librewolf",      NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "firefox",        NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "thunderbird",    NULL,       NULL,    2 << 2,     0,          -1 },
-	{ "pavucontrol",    NULL,       NULL,    1 << 8,     0,          -1 },
-	{ "Signal", NULL,       NULL,    1 << 7,     0,          -1 },
+	{ "emacs",      NULL,       NULL,    1 << 0,     0,          -1 },
+	{ "alacritty", NULL, NULL, (1 << 1) | (1 << 8),  0,	     -1 },
+	{ "librewolf",  NULL,       NULL,    1 << 2,     0,          -1 },
+	{ "firefox",    NULL,       NULL,    1 << 2,     0,          -1 },
 };
 
 /* layout(s) */
@@ -75,7 +74,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 /* TOP ROW */
 
 /* F1 */
-static const char *fastfetch[] = { "alacritty", "-e", "-c", "fastfetch; exec sh", NULL };
+static const char *fastfetch[] = { "alacritty", "-e", "sh", "-c", "fastfetch; exec sh", NULL };
 
 /* F2 */
 static const char *micMute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };

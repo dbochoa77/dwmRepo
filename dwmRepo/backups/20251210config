@@ -1,11 +1,6 @@
-/* 
- _____ _____ ___   _   _______  ___  ____________ 
-/  ___|_   _/ _ \ | \ | |  _  \/ _ \ | ___ \  _  \
-\ `--.  | |/ /_\ \|  \| | | | / /_\ \| |_/ / | | |
- `--. \ | ||  _  || . ` | | | |  _  ||    /| | | |
-/\__/ / | || | | || |\  | |/ /| | | || |\ \| |/ / 
-\____/  \_/\_| |_/\_| \_/___/ \_| |_/\_| \_|___/  
-*/
+/* See LICENSE file for copyright and license details. */
+
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -37,11 +32,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "librewolf",      NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "firefox",        NULL,       NULL,    1 << 2,     0,          -1 },
-	{ "thunderbird",    NULL,       NULL,    2 << 2,     0,          -1 },
-	{ "pavucontrol",    NULL,       NULL,    1 << 8,     0,          -1 },
-	{ "Signal", NULL,       NULL,    1 << 7,     0,          -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -72,77 +64,43 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/* TOP ROW */
-
-/* F1 */
-static const char *fastfetch[] = { "alacritty", "-e", "-c", "fastfetch; exec sh", NULL };
-
-/* F2 */
-static const char *micMute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };
-
-/* F3 */
-static const char *volumeMute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
-
-/* F4 */
-/* SHCMD("keymapsToggle.sh"); Custom Script to toggle between standard and colemark */
-
-/* F5 */
-static const char *volumeDown[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
-
-/* F6 */
-static const char *volumeUp[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
- 
-/* F7 */
-/* SHCMD("moniters.sh"); Custom Script for moniters */
-
-/* F8 */
-static const char *brightnessDown[] = { "brightnessctl", "set", "10%-", NULL };
-
-/* F9 */
-static const char *brightnessUp[] = { "brightnessctl", "set", "10%+", NULL };
-
-/* F10 */
-/* SHCMD("flameshot full --path \"$HOME\Downloads""); Custom Command for screenshots  */
-
-/* F11 */
-static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
-
-/* F12 */
-static const char *weathercmd[] = { "alacritty", "./.local/bin/weather.sh",  NULL };
-
-/*static const char *weathercmd[] = { "/home/dbochoa77/.local/bin/weather.sh", NULL };*/
-
-/* HOT KEYS */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *volumeMute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+static const char *micmute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };
+static const char *volumeUp[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
+static const char *volumeDown[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
+static const char *brightness_up[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brightness_down[] = { "brightnessctl", "set", "10%-", NULL };
+static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
+static const char *bluetoothtoggle[] = { "rfkill", "toggle" , "bluetooth" , "toggle", NULL }; 
 static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
 static const char *slock[] = { "slock", NULL };
 
 
 static const Key keys[] = {
-	/* TOP ROW */
-	/* modifier                     key				function	argument */	
-    { 0,				            XK_F1,          spawn,		{.v = fastfetch } },
-	{ 0,				            XK_F2,          spawn, 		{.v = micMute } },
-    { 0,				            XK_F3,          spawn, 		{.v = volumeMute } },
-	{ 0,				            XK_F4,          spawn, 		SHCMD("keymapsToggle.sh") },
-	{ 0,  				            XK_F5,          spawn, 		{.v = volumeDown } },
-    { 0,  				            XK_F6,          spawn, 		{.v = volumeUp } },
-    { 0,  				            XK_F7,          spawn, 		SHCMD("moniters.sh") },
-    { 0,				            XK_F8,          spawn,		{.v = brightnessDown } },
-	{ 0,				            XK_F9,          spawn, 		{.v = brightnessUp } },
-    { 0,				            XK_F10,         spawn, 		SHCMD("flameshot -p  $HOME/Downloads/") },
-	{ 0,				            XK_F11,         spawn, 		{.v = wifitoggle } },
-	{ 0,  				            XK_F12,	    spawn,		{.v = weathercmd } },  
+	/* CUSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSTOM-----------------------------TOPPPPPPPPPPPPPPPPPPP */
+	/* modifier                     key				function	argument */
+        { 0,				XF86XK_AudioMute,		spawn,		{.v = volumeMute} },
+	{ 0,				XF86XK_AudioRaiseVolume,	spawn,		{.v = volumeUp } }, 			  
+	{ 0,				XF86XK_AudioLowerVolume,	spawn, 		{.v = volumeDown } },
+        { 0,				XF86XK_AudioRaiseVolume,   	spawn, 		{.v = volumeUp } }, 			  
+	{ 0,				XF86XK_AudioMicMute,		spawn, 		{.v = micmute } },
 
-	/* HOT KEYS */
+	{ 0,  				XF86XK_MonBrightnessUp,    	spawn, 		{.v = brightness_up} },
+        { 0,  				XF86XK_MonBrightnessDown,  	spawn, 		{.v = brightness_down} },
+        { 0,  				XF86XK_WLAN,			spawn, 		{.v = wifitoggle } },
+	/*{ 0,  				XK_F9,				spawn, 		{.v = settings } },*/
+	{ 0,  				XK_F10,				spawn, 		{.v = bluetoothtoggle } }, 
+
+	/* HOTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-----------------------------------------------KEYYYYYYYYYYYYYYYYSS */
 	/* modifier                     key	   function	   argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                    XK_q,      spawn,          {.v = termcmd } },
-	{ MODKEY,			            XK_e,	   spawn,          {.v = emacscmd } },
-	{ MODKEY,			            XK_w,	   spawn,          {.v = librewolf } },
-	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = slock } },
+	{ MODKEY,	                XK_q,      spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_e,	   spawn,          {.v = emacscmd } },
+	{ MODKEY,			XK_w,	   spawn,          {.v = librewolf } },
+	{ MODKEY|ShiftMask,		XK_l,	   spawn,          {.v = slock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
