@@ -73,7 +73,6 @@ static const char *volumeDown[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@
 static const char *brightness_up[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brightness_down[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *wifitoggle[] = { "nmcli", "radio", "wifi" , "toggle", NULL };
-static const char *settings[] = { "alacritty", "cd ~/blacknix", NULL };
 static const char *bluetoothtoggle[] = { "rfkill", "toggle" , "bluetooth" , "toggle", NULL }; 
 static const char *emacscmd[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 
